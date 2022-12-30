@@ -6,7 +6,7 @@ const HandleSignUp = async (username,email,password,sec_question,sec_answer) => 
     sec_question,
     sec_answer,
   };
-  const BaseUrl = process.env.REACT_APP_SIGNUP_URL;
+  const BaseUrl = import.meta.env.VITE_APP_SIGNUP_URL;
   try {
     const request = await fetch(BaseUrl, {
       method: "POST",

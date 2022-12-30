@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import Board from "../../../assets/board.jpg";
+import { LoadingContext } from "../../../context/context";
 import {
   BoardAdderModalBody,
   BoardAdderModalHeaderwrapper,
@@ -18,7 +19,7 @@ import {
 const BoardsAdder = ({ type }) => {
   const TitleRef = useRef();
   const DescriptionRef = useRef();
-  const [isLoading, setIsLoading] = useState(false);
+  const {isLoading, setIsLoading} = useContext(LoadingContext)
   return (
     <>
       <BoardAdderModalBody>
@@ -39,6 +40,7 @@ const BoardsAdder = ({ type }) => {
           <BoardInputLabel>Board Description</BoardInputLabel>
           <BoardInputField ref={DescriptionRef} />
         </BoardInputWrapper>
+
         {type === "add" ? (
           <CreateButton>
             {isLoading ? <Loader /> : <BtnText>Create</BtnText>}

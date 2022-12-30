@@ -1,16 +1,15 @@
-const HandleLogin = async (email, password) => {
-  const userData = {
-    email,
-    password
-  };
-  const BaseUrl = process.env.REACT_APP_LOGIN_URL;
+const DeleteWorkspace = async (buid) => {
+  const Data ={
+    buid
+  }
+  const BaseUrl = process.env.REACT_APP_DELETE_BOARDS_URL;
   try {
     const request = await fetch(BaseUrl, {
-      method: "POST",
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(Data),
     });
     const response = await request.json();
     return response;
@@ -19,4 +18,4 @@ const HandleLogin = async (email, password) => {
   }
 };
 
-export default HandleLogin;
+export default DeleteWorkspace;

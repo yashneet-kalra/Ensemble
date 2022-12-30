@@ -15,6 +15,7 @@ export const PopupBody = styled.div`
   border-radius: 0.188rem;
   position: absolute;
   transition: right 500ms;
+  z-index: 10;
 `;
 export const PopupIcon = styled.img`
   width: 1.75rem;

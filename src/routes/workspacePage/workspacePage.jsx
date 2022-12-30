@@ -1,7 +1,9 @@
+import WorkSpace from "../../components/workspace/workspace";
+
 const WorkSpacePage = () => {
   return ( 
     <>
-    WorkSpacePage
+    <WorkSpace />
     </>
    );
 }

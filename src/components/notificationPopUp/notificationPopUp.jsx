@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Right from "../../assets/right.png";
 import Wrong from "../../assets/wrong2.png";
 import { NotificationPopUpContext } from "../../context/context";
@@ -15,21 +15,24 @@ const PopUp = ({ response }) => {
   const { showNotification, setShowNotification } = useContext(
     NotificationPopUpContext
   );
+  const PopupRef = useRef();
   useEffect(() => {
+    setTimeout(() => {
+      if (showNotification !== false) {
+        PopupRef.current.style.right = "-25rem";
+      }
+    }, 1500);
     setTimeout(() => {
       if (showNotification !== false) {
         setShowNotification(false);
       }
-    }, 1500);
+    }, 1750);
   }, [showNotification]);
   return (
     <>
-      <button onClick={() => setShowNotification({ user: "asdasd" })}>
-        show
-      </button>
-      <button onClick={() => setShowNotification(false)}>hide</button>
       <PopUpContainer>
         <PopupBody
+          ref={PopupRef}
           status={response.status === 200 ? true : false}
           style={{ right: showNotification !== false ? "0%" : "-25rem" }}
         >
