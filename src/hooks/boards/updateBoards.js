@@ -2,7 +2,7 @@ const UpdateBoard = async (buid, title, description) => {
   const Data = {
     buid,
     title,
-    description
+    description,
   };
   const BaseUrl = process.env.REACT_APP_UPDATE_BOARDS_URL;
   try {
@@ -16,7 +16,7 @@ const UpdateBoard = async (buid, title, description) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

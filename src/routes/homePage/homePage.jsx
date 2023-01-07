@@ -2,11 +2,11 @@ import Header from "../../components/header/header";
 import Preloader from "../../components/preloader/preloader";
 
 const HomePage = () => {
-  return ( 
+  return (
     <>
-    <Preloader />
+      <Preloader />
     </>
-   );
-}
- 
+  );
+};
+
 export default HomePage;

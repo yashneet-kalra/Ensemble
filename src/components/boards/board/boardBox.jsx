@@ -1,10 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { BoardBoxBody, BoardDescription, BoardTitle } from "./boardBoxElements";
 
-const BoardBox = ({data}) => {
-  console.log("boards data",data)
+const BoardBox = ({ data }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <BoardBoxBody>
+      <BoardBoxBody onClick={()=>navigate(`/list/${data?.board_id}`)}>
         <BoardTitle bold size={"1rem"}>
           {data?.board_title}
         </BoardTitle>
@@ -14,6 +15,6 @@ const BoardBox = ({data}) => {
       </BoardBoxBody>
     </>
   );
-}
- 
+};
+
 export default BoardBox;

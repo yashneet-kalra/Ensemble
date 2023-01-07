@@ -1,7 +1,7 @@
 const DeleteBoard = async (buid) => {
-  const Data ={
-    buid
-  }
+  const Data = {
+    buid,
+  };
   const BaseUrl = process.env.REACT_APP_DELETE_BOARDS_URL;
   try {
     const request = await fetch(BaseUrl, {
@@ -14,7 +14,7 @@ const DeleteBoard = async (buid) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

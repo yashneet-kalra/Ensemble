@@ -1,4 +1,10 @@
-const HandleSignUp = async (username,email,password,sec_question,sec_answer) => {
+const HandleSignUp = async (
+  username,
+  email,
+  password,
+  sec_question,
+  sec_answer
+) => {
   const userData = {
     username,
     email,
@@ -18,7 +24,7 @@ const HandleSignUp = async (username,email,password,sec_question,sec_answer) => 
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+     console.log(err)
   }
 };
 

@@ -9,6 +9,7 @@ import {
   AuthContext,
   LoadingContext,
   NotificationPopUpContext,
+  ShowInputModalContext,
   ShowWSAdderContext,
   UpdateContext,
   WorkspaceArrayContext,
@@ -20,8 +21,7 @@ import Sidebar from "../components/sidebar/sidebar";
 const PseudoBody = styled.div`
   display: flex;
   /* border: 1px solid black; */
-`
-
+`;
 
 const App = () => {
   const [auth, setAuth] = useState(false);
@@ -30,6 +30,7 @@ const App = () => {
   const [workspaceArray, setWorkspaceArray] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [showWorkspaceAdder, setShowWorkspaceAdder] = useState(false);
+  const [showInputModal, setShowInputModal] = useState(false);
   return (
     <>
       <UpdateContext.Provider value={{ update, setUpdate }}>
@@ -40,25 +41,32 @@ const App = () => {
             <ShowWSAdderContext.Provider
               value={{ showWorkspaceAdder, setShowWorkspaceAdder }}
             >
-              <AuthContext.Provider value={{ auth, setAuth }}>
-                <WorkspaceArrayContext.Provider
-                  value={{ workspaceArray, setWorkspaceArray }}
-                >
-                  <GlobalStyles />
-                  <Router>
-                    <Header />
-                    <PseudoBody>
-                      <Sidebar />
-                    <Routes>
-                      <Route exact path="/" element={<HomePage />} />
-                      <Route path="/login" element={<LoginPage />} />
-                      <Route path="/workspace" element={<WorkSpacePage />} />
-                      <Route path="/lists" element={<ListsPage />} />
-                    </Routes>
-                    </PseudoBody>
-                  </Router>
-                </WorkspaceArrayContext.Provider>
-              </AuthContext.Provider>
+              <ShowInputModalContext.Provider
+                value={{ showInputModal, setShowInputModal }}
+              >
+                <AuthContext.Provider value={{ auth, setAuth }}>
+                  <WorkspaceArrayContext.Provider
+                    value={{ workspaceArray, setWorkspaceArray }}
+                  >
+                    <GlobalStyles />
+                    <Router>
+                      <Header />
+                      <PseudoBody>
+                        <Sidebar />
+                        <Routes>
+                          <Route exact path="/" element={<HomePage />} />
+                          <Route path="/login" element={<LoginPage />} />
+                          <Route
+                            path="/workspace"
+                            element={<WorkSpacePage />}
+                          />
+                          <Route path="/list/:buid" element={<ListsPage />} />
+                        </Routes>
+                      </PseudoBody>
+                    </Router>
+                  </WorkspaceArrayContext.Provider>
+                </AuthContext.Provider>
+              </ShowInputModalContext.Provider>
             </ShowWSAdderContext.Provider>
           </LoadingContext.Provider>
         </NotificationPopUpContext.Provider>

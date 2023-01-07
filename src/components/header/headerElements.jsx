@@ -43,12 +43,12 @@ export const UserHeaderWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 2%;
-`
+`;
 export const UserProfileIcon = styled.img`
   width: 2.5rem;
   cursor: pointer;
 `;
-export const CreateBtn = styled(LoginButton)``
+export const CreateBtn = styled(LoginButton)``;
 
 export const WorkspaceButton = styled.button`
   padding: 0.5rem;
@@ -83,18 +83,18 @@ export const WorkspaceOptionContainer = styled.div`
   overflow-y: scroll;
 `;
 export const WorkspaceOption = styled.div`
-  font-family: 'Rubik';
+  font-family: "Rubik";
   margin-top: 3%;
   display: flex;
   align-items: center;
   gap: 3%;
   cursor: pointer;
-  &:hover{
+  &:hover {
     background: var(--dark-orange);
   }
-`
+`;
 export const WorkspaceIcon = styled.div`
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 900;
   padding: 0.3rem 0.5rem;
   background: var(--lighter-black);
@@ -102,17 +102,17 @@ export const WorkspaceIcon = styled.div`
   text-align: center;
   width: 2rem;
   text-transform: uppercase;
-`
+`;
 export const LightLabel = styled.p`
   font-weight: 600;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 0.8rem;
-  color: rgba(0,0,0,0.5);
-`
+  color: rgba(0, 0, 0, 0.5);
+`;
 
 export const BtnIcon = styled.img`
   width: 0.75rem;
   margin-left: 7px;
   transform: scale(${(props) => (props.show ? "-1" : "1")});
   transition: transform 500ms;
-`
+`;

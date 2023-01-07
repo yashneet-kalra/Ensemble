@@ -14,7 +14,6 @@ export const BoardBoxBody = styled.div`
   cursor: pointer;
 `;
 
-
 export const BoardTitle = styled(InputLabel)`
   overflow: hidden;
   text-overflow: ellipsis;

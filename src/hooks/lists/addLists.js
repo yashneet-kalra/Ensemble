@@ -3,7 +3,7 @@ const AddList = async (board_fid, name, color_code, token) => {
     board_fid,
     name,
     color_code,
-    token
+    token,
   };
   const BaseUrl = process.env.REACT_APP_ADD_LISTS_URL;
   try {
@@ -17,7 +17,7 @@ const AddList = async (board_fid, name, color_code, token) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

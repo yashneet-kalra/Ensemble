@@ -10,18 +10,18 @@ export const LoginWrapper = styled.div`
   align-items: flex-start;
   justify-content: space-evenly;
   color: black;
-  `;
+`;
 export const LoginImage = styled.img`
   width: 40%;
   margin-top: 3%;
-  `;
+`;
 export const LoginFormWrapper = styled.div`
   width: 21rem;
   display: flex;
   gap: 5%;
   overflow: hidden;
   align-items: flex-start;
-  `;
+`;
 export const LoginForm = styled.form`
   background: var(--white);
   color: black;
@@ -32,7 +32,7 @@ export const LoginForm = styled.form`
   font-weight: 900;
   transition: margin-left 0.5s;
   border-radius: 0.25rem;
-  &:hover{
+  &:hover {
     background: #fff;
   }
 `;
@@ -53,10 +53,10 @@ export const FormInput = styled.input.attrs({
   font-size: 0.9rem;
   border: 1px solid rgb(0, 0, 0, 0.5);
   &:focus {
-      outline: none;
+    outline: none;
     border: 1px solid rgb(0, 0, 0, 10);
   }
-  `;
+`;
 
 export const InputSelect = styled.select`
   padding: 0.35rem 0.5rem;
@@ -65,7 +65,7 @@ export const InputSelect = styled.select`
   font-size: 0.9rem;
   color: grey;
   &:focus {
-      outline: none;
+    outline: none;
     border: 1px solid rgb(0, 0, 0, 10);
   }
 `;

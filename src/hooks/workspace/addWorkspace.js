@@ -1,7 +1,7 @@
 const AddWorkspace = async (title, creator_id) => {
   const Data = {
     title,
-    creator_id
+    creator_id,
   };
   const BaseUrl = import.meta.env.VITE_APP_ADD_WORKSPACE_URL;
   try {
@@ -15,7 +15,7 @@ const AddWorkspace = async (title, creator_id) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

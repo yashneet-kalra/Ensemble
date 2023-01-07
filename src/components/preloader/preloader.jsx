@@ -6,7 +6,7 @@ const Preloader = () => {
   useEffect(() => {
     setTimeout(() => {
       setShow(false);
-      document.getElementsByTagName('body')[0].style.overflowY = "auto"
+      document.getElementsByTagName("body")[0].style.overflowY = "auto";
     }, 1500);
   }, []);
   return (

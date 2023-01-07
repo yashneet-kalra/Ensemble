@@ -1,6 +1,6 @@
 const GetLists = async (board_fid) => {
   const data = {
-    board_fid
+    board_fid,
   };
   const BaseUrl = process.env.REACT_APP_GET_LISTS_URL;
   try {
@@ -14,7 +14,7 @@ const GetLists = async (board_fid) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

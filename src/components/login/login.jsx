@@ -29,7 +29,7 @@ const Login = () => {
   const { showNotification, setShowNotification } = useContext(
     NotificationPopUpContext
   );
-  const {auth, setAuth} = useContext(AuthContext)
+  const { auth, setAuth } = useContext(AuthContext);
   let navigate = useNavigate();
   const [show, setShow] = useState(true);
   const LoginEmailRef = useRef();
@@ -43,7 +43,7 @@ const Login = () => {
   // createCookie({name: "name", value:"test4", validDays: 30 })
   // createCookie({name: "test", value:"test", validDays: 30 })
   // deleteCookie({name: "test"})
-  // console.log(getCookies({name: "email"}))
+  //  .log(getCookies({name: "email"}))
   return (
     <>
       {/* {modalData && <Modal data={modalData} setState={setModalData} />} */}
@@ -139,12 +139,23 @@ const Login = () => {
                       value: SignupPasswordRef.current.value,
                       validDays: 30,
                     });
-                    const LoginStatus = await HandleLogin(getCookies({name: "email"}), getCookies({name:"pass"}))
-                    if(LoginStatus.status === 200){
-                      deleteCookie({name: "email"})
-                      deleteCookie({name: "pass"})
-                      createCookie({name:  "userName", value: LoginStatus.username, validDays: 30})
-                      createCookie({name:  "uuid", value: LoginStatus.uid, validDays: 30})
+                    const LoginStatus = await HandleLogin(
+                      getCookies({ name: "email" }),
+                      getCookies({ name: "pass" })
+                    );
+                    if (LoginStatus.status === 200) {
+                      deleteCookie({ name: "email" });
+                      deleteCookie({ name: "pass" });
+                      createCookie({
+                        name: "userName",
+                        value: LoginStatus.username,
+                        validDays: 30,
+                      });
+                      createCookie({
+                        name: "uuid",
+                        value: LoginStatus.uid,
+                        validDays: 30,
+                      });
                       setAuth(LoginStatus);
                       navigate("/workspace");
                     }
@@ -209,8 +220,8 @@ const Login = () => {
                       validDays: 30,
                     });
                     setTimeout(() => {
-                      navigate('/workspace')
-                    }, 1300)
+                      navigate("/workspace");
+                    }, 1300);
                   }
                 }}
               >
