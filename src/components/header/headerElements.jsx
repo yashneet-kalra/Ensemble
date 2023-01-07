@@ -6,7 +6,7 @@ import {
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  background: var(--mid-orange);
+  background: var(--bg-blue);
   max-height: 3rem;
   padding: 0.35rem 0.25rem;
   display: flex;
@@ -21,13 +21,14 @@ export const HeaderSubWrapper = styled.div`
 `;
 export const HeaderTitle = styled.h1`
   font-family: "Roboto";
+  color: var(--white);
 `;
 export const LoginButton = styled(CreateButton)`
   width: 7rem;
   margin: 0;
-  background: var(--darker-black);
+  background: var(--dark-blue);
   &::before {
-    background: var(--mid-orange);
+    background: var(--light-blue);
   }
   &:active {
     margin-top: 0;
@@ -53,10 +54,20 @@ export const WorkspaceButton = styled.button`
   padding: 0.5rem;
   display: flex;
   align-items: center;
-  font-family: 'Rubik';
+  font-family: "Rubik";
   overflow: hidden;
   cursor: pointer;
-`
+  background: var(--bg-blue);
+  outline: none;
+  border: none;
+  border-radius: 0.188rem;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5rem;
+  color: white;
+  &:hover {
+    background: #02649d;
+  }
+`;
 export const WorkspaceOptionContainer = styled.div`
   width: 15rem;
   position: absolute;

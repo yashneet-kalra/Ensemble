@@ -7,16 +7,23 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   html{
-    --white: #f5ffff;
+    --white: #FAFBFC;
     --darkest-orange: #ffaf00;
     --dark-orange: #F07900;
     --mid-orange: #F8A145;
     --lighter-black: #151515;
     --darker-black: #010101;
+    --bg-white: #FAFBFC;
+    --bg-blue: #026AA7;
+    --text-blue: #42526E;
+    --light-blue: #67A6CA;
+    --dark-blue: #172b4d;
+    --blue: #E4F0F6;
+    --grey: #F0F2F5;
   }
   body{
     overflow-y: hidden;
-    background: var(--white);
+    background: var(--bg-white);
     padding: 0;
   }
 `;

@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./homePage/homePage";
 import LoginPage from "./loginPage/loginPage";
 import WorkSpacePage from "./workspacePage/workspacePage";
-import BoardsPage from "./boardsPage/boardsPage";
 import ListsPage from "./listsPage/listsPage";
 import GlobalStyles from "../globalStyles/globalStyles";
 import { useState } from "react";
@@ -15,6 +14,15 @@ import {
   WorkspaceArrayContext,
 } from "../context/context";
 import Header from "../components/header/header";
+import styled from "styled-components";
+import Sidebar from "../components/sidebar/sidebar";
+
+const PseudoBody = styled.div`
+  display: flex;
+  /* border: 1px solid black; */
+`
+
+
 const App = () => {
   const [auth, setAuth] = useState(false);
   const [update, setUpdate] = useState(false);
@@ -39,13 +47,15 @@ const App = () => {
                   <GlobalStyles />
                   <Router>
                     <Header />
+                    <PseudoBody>
+                      <Sidebar />
                     <Routes>
                       <Route exact path="/" element={<HomePage />} />
                       <Route path="/login" element={<LoginPage />} />
                       <Route path="/workspace" element={<WorkSpacePage />} />
-                      <Route path="/boards/:wuid" element={<BoardsPage />} />
                       <Route path="/lists" element={<ListsPage />} />
                     </Routes>
+                    </PseudoBody>
                   </Router>
                 </WorkspaceArrayContext.Provider>
               </AuthContext.Provider>

@@ -16,6 +16,7 @@ import {
 } from "./headerElements";
 import ProfileIcon from "../../assets/profile.png";
 import DownArrow from "../../assets/down-arrow.png";
+import DownArrow2 from "../../assets/down-arrow2.png";
 import { useContext, useEffect, useState } from "react";
 import {
   AuthContext,
@@ -24,7 +25,7 @@ import {
 } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import { getCookies } from "../../hooks/randomStuff/randomStuff";
-import WorkSpaceAdder from "../workspace/workspaceElements/workspaceAdder";
+// import WorkSpaceAdder from "../workspace/workspaceElements/workspaceAdder";
 
 const WorkSpaceList = () => {
   let navigate = useNavigate();
@@ -46,8 +47,10 @@ const WorkSpaceList = () => {
                   console.log(e.currentTarget.id);
                 }}
               >
-                <WorkspaceIcon>{item?.title.substring(0, 1)} </WorkspaceIcon>
-                {item?.title}
+                <WorkspaceIcon>
+                  {item?.workspace_title.substring(0, 1)}{" "}
+                </WorkspaceIcon>
+                {item?.workspace_title}
               </WorkspaceOption>
             </>
           );
@@ -89,15 +92,15 @@ const Header = () => {
                   onClick={() => setshowWorkspaceBody(!showWorkspaceBody)}
                 >
                   Workspaces
-                  <BtnIcon src={DownArrow} show={showWorkspaceBody} />
+                  <BtnIcon src={DownArrow2} show={showWorkspaceBody} />
                 </WorkspaceButton>
                 <WorkspaceOptionContainer show={showWorkspaceBody}>
                   <WorkSpaceList />
                 </WorkspaceOptionContainer>
                 <CreateBtn onClick={() => setShowWorkspaceAdder(true)}>
-                  <LoginText>Create +</LoginText>
+                  <LoginText>Create</LoginText>
                 </CreateBtn>
-                <WorkSpaceAdder type={"add"} />
+                {/* <WorkSpaceAdder type={"add"} /> */}
                 <UserProfileIcon src={ProfileIcon} />
               </UserHeaderWrapper>
             ) : (
