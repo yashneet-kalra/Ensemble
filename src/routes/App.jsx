@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./homePage/homePage";
-import LoginPage from "./loginPage/loginPage";
+import Regis from "../components/Regis";
+import Login from "../components/Login";
+import Boards from "../components/boards/Lists/Boards";
 import WorkSpacePage from "./workspacePage/workspacePage";
 import ListsPage from "./listsPage/listsPage";
 import GlobalStyles from "../globalStyles/globalStyles";
@@ -50,9 +51,10 @@ const App = () => {
                     <PseudoBody>
                       <Sidebar />
                     <Routes>
-                      <Route exact path="/" element={<HomePage />} />
-                      <Route path="/login" element={<LoginPage />} />
+                      <Route path="/" element={<Login/>} />
+                      <Route path="/Register" element={<Regis/>} />
                       <Route path="/workspace" element={<WorkSpacePage />} />
+                      <Route path="/boards" element={<Boards/>}/>
                       <Route path="/lists" element={<ListsPage />} />
                     </Routes>
                     </PseudoBody>
