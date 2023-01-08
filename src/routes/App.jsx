@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./homePage/homePage";
-import LoginPage from "./loginPage/loginPage";
+import Regis from "../components/Regis";
+import Login from "../components/Login";
 import WorkSpacePage from "./workspacePage/workspacePage";
 import ListsPage from "./listsPage/listsPage";
 import GlobalStyles from "../globalStyles/globalStyles";
@@ -41,32 +41,25 @@ const App = () => {
             <ShowWSAdderContext.Provider
               value={{ showWorkspaceAdder, setShowWorkspaceAdder }}
             >
-              <ShowInputModalContext.Provider
-                value={{ showInputModal, setShowInputModal }}
-              >
-                <AuthContext.Provider value={{ auth, setAuth }}>
-                  <WorkspaceArrayContext.Provider
-                    value={{ workspaceArray, setWorkspaceArray }}
-                  >
-                    <GlobalStyles />
-                    <Router>
-                      <Header />
-                      <PseudoBody>
-                        <Sidebar />
-                        <Routes>
-                          <Route exact path="/" element={<HomePage />} />
-                          <Route path="/login" element={<LoginPage />} />
-                          <Route
-                            path="/workspace"
-                            element={<WorkSpacePage />}
-                          />
-                          <Route path="/list/:buid" element={<ListsPage />} />
-                        </Routes>
-                      </PseudoBody>
-                    </Router>
-                  </WorkspaceArrayContext.Provider>
-                </AuthContext.Provider>
-              </ShowInputModalContext.Provider>
+              <AuthContext.Provider value={{ auth, setAuth }}>
+                <WorkspaceArrayContext.Provider
+                  value={{ workspaceArray, setWorkspaceArray }}
+                >
+                  <GlobalStyles />
+                  <Router>
+                    <Header />
+                    <PseudoBody>
+                      <Sidebar />
+                    <Routes>
+                      <Route path="/" element={<Login/>} />
+                      <Route path="/Register" element={<Regis/>} />
+                      <Route path="/workspace" element={<WorkSpacePage />} />
+                      <Route path="/list/:buid" element={<ListsPage />} />
+                    </Routes>
+                    </PseudoBody>
+                  </Router>
+                </WorkspaceArrayContext.Provider>
+              </AuthContext.Provider>
             </ShowWSAdderContext.Provider>
           </LoadingContext.Provider>
         </NotificationPopUpContext.Provider>
