@@ -1,8 +1,11 @@
-const DeleteBoard = async (buid) => {
+const DeleteTask = async (user_id, board_id, list_id, task_id) => {
   const Data = {
-    buid,
+    user_id,
+    board_id,
+    list_id,
+    task_id
   };
-  const BaseUrl = process.env.REACT_APP_DELETE_BOARDS_URL;
+  const BaseUrl = import.meta.env.VITE_APP_DELETE_TASK_URL;
   try {
     const request = await fetch(BaseUrl, {
       method: "DELETE",
@@ -14,8 +17,8 @@ const DeleteBoard = async (buid) => {
     const response = await request.json();
     return response;
   } catch (err) {
-      console.log(err);;
+    console.log(err);
   }
 };
 
-export default DeleteBoard;
+export default DeleteTask;

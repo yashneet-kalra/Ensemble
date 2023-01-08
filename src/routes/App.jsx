@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Regis from "../components/Regis";
 import Login from "../components/Login";
-import Boards from "../components/boards/Lists/Boards";
 import WorkSpacePage from "./workspacePage/workspacePage";
 import ListsPage from "./listsPage/listsPage";
 import GlobalStyles from "../globalStyles/globalStyles";
@@ -10,6 +9,7 @@ import {
   AuthContext,
   LoadingContext,
   NotificationPopUpContext,
+  ShowInputModalContext,
   ShowWSAdderContext,
   UpdateContext,
   WorkspaceArrayContext,
@@ -21,8 +21,7 @@ import Sidebar from "../components/sidebar/sidebar";
 const PseudoBody = styled.div`
   display: flex;
   /* border: 1px solid black; */
-`
-
+`;
 
 const App = () => {
   const [auth, setAuth] = useState(false);
@@ -31,6 +30,7 @@ const App = () => {
   const [workspaceArray, setWorkspaceArray] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [showWorkspaceAdder, setShowWorkspaceAdder] = useState(false);
+  const [showInputModal, setShowInputModal] = useState(false);
   return (
     <>
       <UpdateContext.Provider value={{ update, setUpdate }}>
@@ -54,8 +54,7 @@ const App = () => {
                       <Route path="/" element={<Login/>} />
                       <Route path="/Register" element={<Regis/>} />
                       <Route path="/workspace" element={<WorkSpacePage />} />
-                      <Route path="/boards" element={<Boards/>}/>
-                      <Route path="/lists" element={<ListsPage />} />
+                      <Route path="/list/:buid" element={<ListsPage />} />
                     </Routes>
                     </PseudoBody>
                   </Router>

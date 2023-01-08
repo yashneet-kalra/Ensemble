@@ -1,11 +1,10 @@
-const AddList = async (board_fid, name, color_code, token) => {
+const AddList = async (user_id, title, board_id) => {
   const Data = {
-    board_fid,
-    name,
-    color_code,
-    token
+   user_id,
+   title,
+   board_id
   };
-  const BaseUrl = process.env.REACT_APP_ADD_LISTS_URL;
+  const BaseUrl = import.meta.env.VITE_APP_ADD_LISTS_URL;
   try {
     const request = await fetch(BaseUrl, {
       method: "POST",
@@ -17,7 +16,7 @@ const AddList = async (board_fid, name, color_code, token) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

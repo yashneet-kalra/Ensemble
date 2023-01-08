@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useNavigate } from "react-router-dom";
 import log from '../assets/log.svg'
 import {Link, Navigate} from 'react-router-dom'
+import HandleSignUp from './../hooks/authentication/handleSignup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
@@ -94,7 +95,7 @@ const Regis = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    var response = await HandleSignup(
+    var response = await HandleSignUp(
       SignupNameRef.current.value,
       SignupEmailRef.current.value,
       SignupPasswordRef.current.value,
@@ -122,7 +123,7 @@ const Regis = () => {
         createCookie({name:  "userName", value: LoginStatus.username, validDays: 30})
         createCookie({name:  "uuid", value: LoginStatus.uid, validDays: 30})
         setAuth(LoginStatus);
-        navigate("/Boards");
+        navigate("/workspace");
       }
     }
 
@@ -135,9 +136,9 @@ const Regis = () => {
               <div class = "h1"> ENSEMBLE </div>
               <div class = "h3"> Remember everything important. </div>
           </div>
-          <input type = "text" placeholder = "Username" name = "username" onChange = {(e) => handleChange(e)}/> 
-          <input type = "email" placeholder = "E-mail" name = "email" onChange = {(e) => handleChange(e)}/> 
-          <input type = "password" placeholder = "Password" name = "password" onChange = {(e) => handleChange(e)}/>
+          <input type = "text" placeholder = "Username" name = "username" ref={SignupNameRef} onChange = {(e) => handleChange(e)}/> 
+          <input type = "email" placeholder = "E-mail" name = "email" ref={SignupEmailRef} onChange = {(e) => handleChange(e)}/> 
+          <input type = "password" placeholder = "Password" name = "password" ref={SignupPasswordRef} onChange = {(e) => handleChange(e)}/>
           <input type = "password" placeholder = "Confirm Password" name = "confirmPassword" onChange = {(e) => handleChange(e)}/>
 
           <button type = "submit" onClick = {handleSignup}> Register </button>

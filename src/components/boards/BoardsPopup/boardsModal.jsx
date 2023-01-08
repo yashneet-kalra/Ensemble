@@ -19,7 +19,7 @@ import {
 const BoardsAdder = ({ type }) => {
   const TitleRef = useRef();
   const DescriptionRef = useRef();
-  const {isLoading, setIsLoading} = useContext(LoadingContext)
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
   return (
     <>
       <BoardAdderModalBody>

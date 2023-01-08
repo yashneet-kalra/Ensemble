@@ -1,8 +1,9 @@
-const DeleteWorkspace = async (buid) => {
-  const Data ={
-    buid
-  }
-  const BaseUrl = process.env.REACT_APP_DELETE_BOARDS_URL;
+const DeleteWorkspace = async (uid, wuid) => {
+  const Data = {
+    uid,
+    wuid,
+  };
+  const BaseUrl = import.meta.env.VITE_APP_DELETE_WORKSPACE_URL;
   try {
     const request = await fetch(BaseUrl, {
       method: "DELETE",
@@ -14,7 +15,7 @@ const DeleteWorkspace = async (buid) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

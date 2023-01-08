@@ -1,11 +1,11 @@
-const AddBoard = async (title, description, token, creator_id) => {
+const AddBoard = async (title, description, creator_id, workspace_id) => {
   const Data = {
     title,
     description,
-    token,
-    creator_id
+    workspace_id,
+    creator_id,
   };
-  const BaseUrl = process.env.REACT_APP_ADD_BOARDS_URL;
+  const BaseUrl = import.meta.env.VITE_APP_ADD_BOARDS_URL;
   try {
     const request = await fetch(BaseUrl, {
       method: "POST",
@@ -17,7 +17,7 @@ const AddBoard = async (title, description, token, creator_id) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

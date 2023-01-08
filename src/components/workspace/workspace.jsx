@@ -13,6 +13,7 @@ import WorkSpaceItem from "./workspaceElements/workSpaceItem/workSpaceItem";
 import WorkSpaceAdder from "./workspaceElements/workspaceAdder/workspaceAdder";
 import { WorkspaceContentsTitle } from "./workspaceElements/workspaceAdder/workspaceAdderElements";
 import { InputLabel } from "../common/common";
+import InputModal from "../inputModal/inputModal";
 
 const WorkSpaceContainer = styled.div`
   /* display: flex; */
@@ -21,12 +22,14 @@ const WorkSpaceContainer = styled.div`
   /* margin: 3% auto; */
   margin-top: 2%;
   /* border: 1px solid black; */
-`;
+  `;
 const Title = styled(WorkspaceContentsTitle)``;
 const WorkspaceBody = styled.div`
+/* border: 1px solid red; */
   width: 100%;
-  margin-top: 3%;
+  margin-top: 2%;
   padding-left: 2%;
+  margin-bottom: 5%;
 `;
 const WorkSpace = () => {
   const { auth, setAuth } = useContext(AuthContext);
@@ -38,11 +41,12 @@ const WorkSpace = () => {
   );
   const { update, setUpdate } = useContext(UpdateContext);
   useEffect(() => {
+    document.getElementsByTagName("body")[0].style.overflowY = "auto";
     (async () => {
       const response = await GetWorkspacesAndBoards(
-        auth ? auth.uid : getCookies({ name: "uuid" })
+        auth ? auth?.uid : getCookies({ name: "uuid" })
       );
-      response.status === 200
+      response?.status === 200
         ? setWorkspaceArray(response)
         : setWorkspaceArray(false);
     })();
@@ -50,6 +54,7 @@ const WorkSpace = () => {
   return (
     <>
       <PopUp response={showNotification} />
+      <InputModal />
       <WorkSpaceAdder />
       <WorkspaceBody>
         <Title>Your Workspaces</Title>
@@ -57,17 +62,20 @@ const WorkSpace = () => {
           {workspaceArray ? (
             <>
               {workspaceArray.data.length !== 0 ? (
-                <>{workspaceArray?.data.map((item) => <WorkSpaceItem data={item} />)}</>
+                <>
+                  {workspaceArray?.data.map((item) => (
+                    <WorkSpaceItem data={item} />
+                  ))}
+                </>
               ) : (
                 <InputLabel top={"2%"}>
-                  {console.log("block 2")}
+                  
                   You aren't a member of any workspaces yet.
                 </InputLabel>
               )}
             </>
           ) : (
             <InputLabel top={"2%"}>
-              {console.log("block 3")}
               You aren't a member of any workspaces yet.
             </InputLabel>
           )}

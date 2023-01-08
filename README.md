@@ -1,7 +1,7 @@
 # Use this command to start the server
 
 ### `npm dev`
- 
- or
+
+or
 
 ### `yarn dev`
