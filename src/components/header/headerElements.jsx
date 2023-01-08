@@ -71,7 +71,7 @@ export const WorkspaceButton = styled.button`
 export const WorkspaceOptionContainer = styled.div`
   width: 15rem;
   position: absolute;
-  background: var(--mid-orange);
+  background: var(--bg-blue);
   border: 1px solid black;
   right: 5%;
   top: ${(props) => (props.show ? "3.5rem" : "-60%")};
@@ -90,7 +90,7 @@ export const WorkspaceOption = styled.div`
   gap: 3%;
   cursor: pointer;
   &:hover {
-    background: var(--dark-orange);
+    background: var(--bg-blue);
   }
 `;
 export const WorkspaceIcon = styled.div`

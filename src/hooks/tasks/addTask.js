@@ -1,13 +1,16 @@
-const DeleteList = async (user_id, board_id,list_id) => {
+const AddTask = async (title, user_id, board_id, due_date_time, list_id) => {
   const Data = {
+    title,
     user_id,
     board_id,
+    due_date_time,
     list_id
   };
-  const BaseUrl = import.meta.env.VITE_APP_DELETE_LISTS_URL;
+  console.log("Data",Data)
+  const BaseUrl = import.meta.env.VITE_APP_ADD_TASK_URL;
   try {
     const request = await fetch(BaseUrl, {
-      method: "DELETE",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -16,8 +19,8 @@ const DeleteList = async (user_id, board_id,list_id) => {
     const response = await request.json();
     return response;
   } catch (err) {
-      console.log(err);;
+    console.log(err);
   }
 };
 
-export default DeleteList;
+export default AddTask;

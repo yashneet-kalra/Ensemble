@@ -1,22 +1,22 @@
-const GetListsAndTasks = async (user_id, board_id) => {
+const GetBoardWorkspace = async (uid, buid) => {
   const data = {
-    user_id,
-    board_id
+    uid
   };
-  const BaseUrl = import.meta.env.VITE_APP_GET_LISTS_AND_TASK_URL;
+  const BaseUrl = import.meta.env.VITE_APP_GET_ALL_BOARD;
   try {
     const request = await fetch(BaseUrl, {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
     const response = await request.json();
+    console.log(response)
     return response;
   } catch (err) {
-      console.log(err);;
+    console.log(err);
   }
 };
 
-export default GetListsAndTasks;
+export default GetBoardWorkspace;

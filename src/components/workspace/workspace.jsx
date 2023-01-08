@@ -44,9 +44,9 @@ const WorkSpace = () => {
     document.getElementsByTagName("body")[0].style.overflowY = "auto";
     (async () => {
       const response = await GetWorkspacesAndBoards(
-        auth ? auth.uid : getCookies({ name: "uuid" })
+        auth ? auth?.uid : getCookies({ name: "uuid" })
       );
-      response.status === 200
+      response?.status === 200
         ? setWorkspaceArray(response)
         : setWorkspaceArray(false);
     })();

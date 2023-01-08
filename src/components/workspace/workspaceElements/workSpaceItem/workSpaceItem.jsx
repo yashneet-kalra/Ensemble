@@ -14,7 +14,7 @@ import MemberIcon from "../../../../assets/member.png";
 import TrashIcon from "../../../../assets/trash.png";
 import UpdateIcon from "../../../../assets/update.png";
 import BoardBox from "../../../boards/board/boardBox";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Loader } from "../../../common/common";
 import {
   AuthContext,
@@ -26,6 +26,7 @@ import DeleteWorkspace from "../../../../hooks/workspace/deleteWorkspace";
 import { getCookies } from "../../../../hooks/randomStuff/randomStuff";
 import BoardsAdder from "../../../boards/BoardsPopup/boardsModal";
 const WorkSpaceItem = ({ data }) => {
+  const [limit, setLimit] = useState(4);
   const [isLoading, setIsloading] = useState(false);
   const ReverseBoardsArray = [];
   data?.boards_data?.forEach((element) => {
@@ -39,6 +40,9 @@ const WorkSpaceItem = ({ data }) => {
   const { showInputModal, setShowInputModal } = useContext(
     ShowInputModalContext
   );
+  useEffect(()=>{
+    setLimit(4)
+  },[update])
   return (
     <>
       <WorkspaceItemBody>
@@ -55,9 +59,9 @@ const WorkSpaceItem = ({ data }) => {
             <WorkspaceOption>
               <WorkspaceOptionIcon src={BoardsImage2} />
               Boards{" "}
-              {ReverseBoardsArray.length === 0
+              {data?.boards_data?.length === 0
                 ? ""
-                : `(${ReverseBoardsArray?.length})`}
+                : `(${data?.boards_data?.length})`}
             </WorkspaceOption>
             <WorkspaceOption>
               <WorkspaceOptionIcon src={MemberIcon} />
@@ -114,10 +118,11 @@ const WorkSpaceItem = ({ data }) => {
               Create New Board
             </AdderButton>
           </>
-          {ReverseBoardsArray?.slice(0, 4)?.map((item) => (
-            <BoardBox data={item} />
+          {data?.boards_data?.slice(0, limit)?.map((item) => (
+            <BoardBox data={item} wuid={data.workspace_uid} />
           ))}
         </WorkspaceItemMainBody>
+        {(data?.boards_data?.length>4) && <WorkspaceOption style={{width: "max-content", fontWeight: 900, padding: "0.5rem 1rem"}} onClick={()=> setLimit(data?.boards_data?.length)}>See More</WorkspaceOption>}
       </WorkspaceItemBody>
     </>
   );
