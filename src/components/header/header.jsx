@@ -44,7 +44,6 @@ const WorkSpaceList = () => {
                 id={item.wuid}
                 onClick={(e) => {
                   navigate(`/boards/${item.wuid}`);
-                  console.log(e.currentTarget.id);
                 }}
               >
                 <WorkspaceIcon>

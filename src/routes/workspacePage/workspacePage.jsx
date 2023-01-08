@@ -1,11 +1,11 @@
 import WorkSpace from "../../components/workspace/workspace";
 
 const WorkSpacePage = () => {
-  return ( 
+  return (
     <>
-    <WorkSpace />
+      <WorkSpace />
     </>
-   );
-}
- 
+  );
+};
+
 export default WorkSpacePage;

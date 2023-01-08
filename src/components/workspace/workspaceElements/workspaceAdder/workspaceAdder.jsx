@@ -11,7 +11,7 @@ import {
 } from "./workspaceAdderElements";
 import BoardIllustration from "../../../../assets/boardsIllustration.png";
 import { Button, InputField, InputLabel, Loader } from "../../../common/common";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import AddWorkspace from "../../../../hooks/workspace/addWorkspace";
 import {
   AuthContext,
@@ -30,7 +30,12 @@ const WorkSpaceAdder = () => {
   const { showNotification, setShowNotification } = useContext(
     NotificationPopUpContext
   );
-  const {update, setUpdate} = useContext(UpdateContext)
+  const { update, setUpdate } = useContext(UpdateContext);
+  useEffect(() => {
+    showWorkspaceAdder
+      ? (document.getElementsByTagName("body")[0].style.overflow = "hidden")
+      : (document.getElementsByTagName("body")[0].style.overflow = "auto");
+  }, [showWorkspaceAdder]);
   return (
     <>
       {showWorkspaceAdder && (
@@ -75,7 +80,7 @@ const WorkSpaceAdder = () => {
                     setIsDisabled(false);
                     setShowWorkspaceAdder(false);
                     setShowNotification(response);
-                    setUpdate(!update)
+                    setUpdate(!update);
                   }}
                 >
                   {isLoading ? <Loader /> : "Create"}
@@ -83,7 +88,9 @@ const WorkSpaceAdder = () => {
               </WorkspaceAdderContents>
             </WorkspaceAdderContentWrapper>
             <WorkspaceAdderImageWrapper>
-              <CloseButton onClick={()=> setShowWorkspaceAdder(false)}>+</CloseButton>
+              <CloseButton onClick={() => setShowWorkspaceAdder(false)}>
+                +
+              </CloseButton>
               <WorkspaceAdderImage src={BoardIllustration} />
             </WorkspaceAdderImageWrapper>
           </WorkspaceAdderWrapper>

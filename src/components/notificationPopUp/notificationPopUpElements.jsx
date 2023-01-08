@@ -36,7 +36,12 @@ export const Response = styled.div`
   flex-grow: 1;
 `;
 
-export const CloseIcon = styled(BoardsCloseButton)`
+export const CloseIcon = styled.div`
   color: black;
   margin-top: 0;
+  transform: rotate(45deg);
+  float: right;
+  font-size: 2rem;
+  font-weight: 600;
+  cursor: pointer;
 `;

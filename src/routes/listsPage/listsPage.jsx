@@ -1,9 +1,13 @@
+import { useParams } from "react-router-dom";
+import List from "../../components/lists/lists";
+
 const ListsPage = () => {
-  return ( 
+  const {buid} = useParams();
+  return (
     <>
-    ListsPAGE
+    <List buid={buid} />
     </>
-   );
-}
- 
+  );
+};
+
 export default ListsPage;

@@ -1,8 +1,8 @@
-const UpdateWorkspace = async (title, uid, wuid ) => {
+const UpdateWorkspace = async (title, uid, wuid) => {
   const Data = {
     title,
-    uid, 
-    wuid
+    uid,
+    wuid,
   };
   const BaseUrl = import.meta.env.VITE_APP_UPDATE_WORKSPACE_URL;
   try {
@@ -16,7 +16,7 @@ const UpdateWorkspace = async (title, uid, wuid ) => {
     const response = await request.json();
     return response;
   } catch (err) {
-    console.log(err);
+      console.log(err);;
   }
 };
 

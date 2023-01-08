@@ -3,7 +3,8 @@ import { WorkspaceContentsTitle } from "../workspaceAdder/workspaceAdderElements
 
 export const WorkspaceItemBody = styled.div`
   /* border: 1px solid black; */
-  margin-top: 2%;
+  margin-top: 3%;
+  width: 95%;
 `;
 
 export const WorkspaceHeader = styled.div`
@@ -15,6 +16,7 @@ export const WorkspaceSubHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 2%;
+  justify-content: ${(props) => (props.justify ? props.justify : "")};
   width: 50%;
 `;
 export const WorkspaceIcon = styled.p`
@@ -34,7 +36,7 @@ export const WorkspaceOption = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Rubik';
+  font-family: "Rubik";
   font-size: 0.85rem;
   cursor: pointer;
 `;
@@ -50,7 +52,7 @@ export const WorkspaceItemMainBody = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-`
+`;
 
 export const AdderButton = styled.button`
   width: 10rem;

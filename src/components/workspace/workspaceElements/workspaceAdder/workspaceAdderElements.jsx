@@ -18,14 +18,12 @@ export const WorkspaceAdderWrapper = styled.div`
   position: relative;
   display: flex;
   background: var(--white);
-`
+`;
 export const WorkspaceAdderContentWrapper = styled.div`
   min-width: 50%;
   padding: 3rem;
-`
-export const WorkspaceAdderContents = styled.div`
-  
-`
+`;
+export const WorkspaceAdderContents = styled.div``;
 export const WorkspaceContentsTitle = styled.p`
   font-size: ${(props) => (props.size ? props.size : "1.5rem")};
   font-weight: 600;
@@ -46,10 +44,10 @@ export const WorkspaceAdderImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 export const WorkspaceAdderImage = styled.img`
   width: 15rem;
-`
+`;
 
 export const CloseButton = styled.div`
   transform: rotate(45deg);
